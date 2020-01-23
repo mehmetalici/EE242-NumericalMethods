@@ -7,12 +7,6 @@ Command Line Arguments
 The program has three command line arguments for the parameters. The first argument is the name of the file you read the matrix from, the second argument is the tolerance, which will be used in the normalized power iteration algorithm, and the third argument is the name of your output file.
 
 
--------------------------
-How to Run "source.cpp"
--------------------------
-“source.cpp” is written in C++. You can use any compiler as you wish. Dev-C++, with TDM-GCC 4.9.2 compiler is tested and recommended.   
-
-
 ------------------
 Design Decisions
 ------------------
