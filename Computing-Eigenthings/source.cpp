@@ -305,7 +305,7 @@ class Matrix {
 			return result;
 		}
 		else{
-			cout << "ERROR: Matrix dimensions does not agree";
+			throw std::invalid_argument("ERROR: Matrix dimensions does not agree");
 		}
 	}
 	
@@ -348,7 +348,7 @@ class Matrix {
 			return temp;
 		}
 		else{
-			cout << "ERROR! Matrix dimensions does not agree.";
+			throw std::invalid_argument("ERROR: Matrix dimensions does not agree");
 		}
 	}
 	
@@ -452,7 +452,7 @@ int main(int argc, char** argv) {
 		outfile << "Eigenvalue #1: " << endl << A.getDom_eigenv() << endl << endl;		//A's eigenvalues are written by cout.
 		A.getEigenVector().printFile(outfile);		//A method is used since it is a vector.
 		outfile << endl << "Eigenvalue #2: " << endl << B.getDom_eigenv();	//B's eigen value is printed.
-		cout << endl <<  output << " was successfully created!";		//Error detection.
+		cout << endl <<  output << " is successfully created!\n";		//Error detection.
 	}
 	else cout << "Unable to open x.txt"; 		//Error detection.
 	outfile.close();

@@ -84,7 +84,7 @@ class Function {
 			return count_bisect;
 		}
 		/* Tolerance setter. */
-		setTol(double tol){
+		void setTol(double tol){
 			this->tol = tol;
 		}		
 		
@@ -97,7 +97,7 @@ class Function {
 		/* Method to print the actual function for user.
 		   let coeffs = [2 3 0 1]. This method will print in:
 		   y = 2x^4 + 3x^3 + 3x^2 + 1 	*/
-		print() {
+		void print() {
 			int j = coeffs.size();
 			cout << "The function:" << endl <<"y = ";
 			for (it = coeffs.begin(); it != coeffs.end(); ++it){
@@ -180,6 +180,7 @@ class Function {
 			if (calc(a) * calc(b) < 0) {
 					return true;
 				}
+			return false;
 		}
 		
 		/* 
@@ -238,6 +239,12 @@ int main(int argc, char** argv) {
 	for(int i = 1; i < argc-3; i++) {
 		coeffs.push_back(atof(argv[i]));
 	}
+
+	std::cout << "Tol:" << tol << " Guess1:" << guess1 << " Guess2:" << guess2;
+	std::cout << " Vector: ";
+	for (int i: coeffs) {
+		std::cout << i << " ";
+	}
 	
 	/* CREATING A CLASS INSTANCE */
 	Function f2(coeffs);
@@ -263,8 +270,6 @@ int main(int argc, char** argv) {
 	cout << "Root: " << f2.getRootbySec(f2.getA(), f2.getB()) << endl; 
 	cout << "# of Iterations: " << f2.getCount_sec() + it_bisec << endl << endl;
 	
-
-
 	
 	return 0;
 }

@@ -26,7 +26,7 @@ int main() {
 	
 	// required codes for fire I/O
 	string line; // variable to read lines from text files.
-	fstream afile ("a.txt"); //text of Matrix A is kept at afile variable. 
+	fstream afile ("A.txt"); //text of Matrix A is kept at afile variable. 
 	fstream bfile("b.txt"); // likewise, vector b for bfile.
 
 	
@@ -56,7 +56,7 @@ int main() {
 		n = n1; // they are equalized to common variable n.
 	}
 	else {
-		cout << "Matrix rows must agree"; // Wrong input error.
+		cout << "Matrix rows must agree: " << n1 << " != " << n2 << endl; // Wrong input error.
 		return -1; // The program terminates  
 	}
 	
@@ -76,7 +76,7 @@ int main() {
 	}						 
 	
 	
-	afile.open("a.txt"); // Reopen the a file to pass the values to the created matrix.
+	afile.open("A.txt"); // Reopen the a file to pass the values to the created matrix.
 	// Passing values with a nested for loop since it's 2D.
 	for(int i = 0; i<n; i++){  
 		for(int j=0; j<n; j++) {
