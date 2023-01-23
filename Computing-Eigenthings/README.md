@@ -1,24 +1,64 @@
-# Computation of Eigenvalues and Eigenvectors
+## Computation of Eigenvalues and Eigenvectors
 Implementation of the normalized power iteration algorithm together with deflation to find two eigenvalues and corresponding eigenvector for the dominant eigenvalue of a given matrix A on C++
 
-----------------------
-Command Line Arguments
-----------------------
-The program has three command line arguments for the parameters. The first argument is the name of the file you read the matrix from, the second argument is the tolerance, which will be used in the normalized power iteration algorithm, and the third argument is the name of your output file.
+### Getting Started
+#### Prerequisites
+1. C++ compiler capable of C++11 or above. 
+
+#### Installing
+Assuming you use `g++`,
+1. g++ source.cpp -std=c++11 -o eig-things
+
+#### Running
+The program has three command line arguments for the parameters:
+1. Path to the file you read the matrix from,
+2. Tolerance used in the normalized power iteration algorithm,
+3. Name of your output file.
+
+For example, given:
+
+A.txt
+```
+1 2
+3 4
+```
+
+Tolearance=0.0001, and path to the output file ./out.txt, running the program:
+
+`./eig-things A.txt 0.00001 out.txt`
+
+yields the following output:
+```
+Eigenvalue #1: 5.37
+
+Eigenvector #1: 
+0.46  
+1.00  
+
+Eigenvalue #2: 
+-0.37
 
 
-------------------
-Design Decisions
-------------------
+out.txt is successfully created!
+```
+Checking the contents of out.txt, yields:
 
-This program computes Eigenvalues and Eigenvectors using Normalized Power Iteration together with Deflation. This program contains many matrix operations thus I decided to create a matrix class and implement all the operations. 
+```
+Eigenvalue #1: 
+5.37
 
-The calc_eigenThings() method computes the eigen things of the corresponding matrix. Since I was going to use the algorithm I mentioned above I decided this function to be a recursive function, i.e call itself until the conditions are met, to find the eigenthings of the given matrix. 
+Eigenvector #1: 
+0.46
+1.00
 
-After finding, I decided to remove the eigenthings and create a new matrix B from A. Then call the same function calc_eigenThings() for matrix B. This operation yields the second eigenthings for the matrix A. 
+Eigenvalue #2: 
+-0.37
+```
 
-Same prodecure can be followed to obtain further eigenthings of the matrix A.
+### Design Decisions
+A Matrix class was created to encapsulate its matrix operations. 
 
+The calc_eigenThings() method computes the "eigen-things" of the corresponding matrix. The eigen-things corresponds to two eigen values together with the eigen vector for the dominant eigen value. 
 
 
 
